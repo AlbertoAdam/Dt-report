@@ -13,7 +13,6 @@ bins = [0, 2, 4, 6, 8]
 labels = ['< 2 Hours', '2-4 Hours', '4-6 Hours', '> 6 Hours']
 
 # 2. Create the new 'Hour Group' column
-# Use right=False to include 0 (e.g., [0-2) )
 df['Hour Group'] = pd.cut(df['total_sleep_time_hours'], bins=bins, labels=labels, right=False)
 
 # 3. Define colors for each group
@@ -40,7 +39,6 @@ for group, color in color_map.items():
     # Filter data for the current group
     group_data = df[df['Hour Group'] == group]
     if not group_data.empty:
-        # Scale bubble sizes (similar to Altair scale(range=[...]))
         scaled_sizes = np.interp(
             group_data['total_sleep_time_hours'],
             [min_hours, max_hours],
@@ -54,7 +52,7 @@ for group, color in color_map.items():
             c=color,          # Group color
             label=group,      # Label for the legend
             alpha=0.7,
-            edgecolors='w',   # White edge for clarity
+            edgecolors='w',
             linewidth=0.5
         )
 
@@ -63,7 +61,6 @@ color_legend = ax.legend(title='Hours Slept Group', loc='upper right')
 ax.add_artist(color_legend)  # Add the first legend
 
 # 2. Create legend for SIZE (Hours Slept)
-# Create "ghost" points to show the size scale
 sizes_for_legend = [2, 4, 6]
 legend_handles = []
 for size in sizes_for_legend:

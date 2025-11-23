@@ -20,7 +20,6 @@ colors = ['#87CEEB', '#9370DB', '#4682B4', '#CD5C5C']
 # Create a figure and axis
 fig, ax = plt.subplots()
 
-# Draw the pie chart with the new color for 'Awake'
 wedges, texts, autotexts = ax.pie(
     sizes,
     labels=labels,

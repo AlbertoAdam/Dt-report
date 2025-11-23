@@ -41,8 +41,7 @@ def plot_sleep_data_with_aggregation_and_ma(file_path):
         for start_date, end_date in highlight_periods:
             ax.axvspan(start_date, end_date, color='purple', alpha=0.3, zorder=1)
 
-        # 9. Plot the *aggregated* total sleep time line
-        # --- MODIFICATION: Added label ---
+        # 9. Plot the  total sleep time line
         ax.plot(df_agg['date'], df_agg['total_sleep_time_hours'], marker='o', linestyle='-', color='skyblue', zorder=5,
                 label='Daily Total Sleep')
 
@@ -75,7 +74,6 @@ def plot_sleep_data_with_aggregation_and_ma(file_path):
 
         # 15. Create the legend
         ax.legend(handles=handles, loc='lower left')
-        # --- END MODIFIED STEP ---
 
         # 16. Set x and y limits based on *aggregated* data
         date_min = df_agg['date'].min() - pd.Timedelta(hours=12)

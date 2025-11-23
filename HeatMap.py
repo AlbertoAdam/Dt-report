@@ -1,9 +1,8 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import numpy as np
 
-# Load the dataset
+
 file_path = 'sleep_data.csv'
 try:
     df = pd.read_csv(file_path)
