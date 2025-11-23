@@ -14,9 +14,7 @@ labels = ['Light Sleep', 'REM Sleep', 'Deep Sleep', 'Awake Time\n'
                                                     'after falling asleep']
 sizes = [total_light_sleep, total_rem_sleep, total_deep_sleep, total_waso]
 
-# 3. Define the new color palette
 colors = ['#87CEEB', '#9370DB', '#4682B4', '#CD5C5C']
-# (lightskyblue, mediumpurple, steelblue, indianred)
 
 # 4. Create the pie chart using Matplotlib
 # Create a figure and axis

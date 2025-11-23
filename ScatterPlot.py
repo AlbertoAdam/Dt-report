@@ -10,7 +10,6 @@ df = pd.read_csv('sleep_data.csv')
 df['waso_minutes'] = df['waso'] / 60
 
 # --- Filter the data ---
-# Keep only the rows where 'waso_minutes' is greater than 0
 df_filtered = df[df['waso_minutes'] > 0].copy()
 
 # --- Create the plot ---

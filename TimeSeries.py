@@ -5,14 +5,7 @@ from matplotlib.patches import Patch
 
 
 def plot_sleep_data_with_aggregation_and_ma(file_path):
-    """
-    Loads sleep data, aggregates multiple sleep episodes per day by summing
-    their durations, plots the total daily sleep time, adds a 7-day moving average,
-    highlights custom periods, and ensures daily ticks on the x-axis.
 
-    Args:
-        file_path (str): The path to the CSV file containing sleep data.
-    """
     try:
         # 1. Load the data
         df = pd.read_csv(file_path)
@@ -23,7 +16,6 @@ def plot_sleep_data_with_aggregation_and_ma(file_path):
         # 3. Aggregate data by day
         df_agg = df.groupby('date')['total_sleep_time_hours'].sum().reset_index()
 
-        # --- NEW STEP: Calculate 7-day moving average ---
         # 4. Sort by date first to ensure correct rolling calculation
         df_agg = df_agg.sort_values(by='date')
 
@@ -74,7 +66,6 @@ def plot_sleep_data_with_aggregation_and_ma(file_path):
         # Add a grid
         ax.grid(True, linestyle='--', alpha=0.6, zorder=0)
 
-        # --- MODIFIED STEP: Create combined legend ---
         # 13. Get handles and labels from the plot
         handles, labels = ax.get_legend_handles_labels()
 

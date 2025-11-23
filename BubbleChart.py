@@ -2,7 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Re-loading the data to be safe
 df = pd.read_csv('sleep_data.csv')
 
 # Convert waso from seconds to minutes for easier reading
@@ -24,7 +23,6 @@ color_map = {
     '4-6 Hours': '#00A8FF',  # Blue
     '> 6 Hours': '#00C853'   # Green
 }
-# --- End Data Preparation ---
 
 
 # --- Create Chart (Matplotlib) ---
@@ -59,8 +57,6 @@ for group, color in color_map.items():
             edgecolors='w',   # White edge for clarity
             linewidth=0.5
         )
-
-# --- Add Legends and Finalize ---
 
 # 1. Create legend for COLOR (Hour Group)
 color_legend = ax.legend(title='Hours Slept Group', loc='upper right')

@@ -2,7 +2,6 @@ import pandas as pd
 import statsmodels.api as sm
 import warnings
 
-# Suppress common warnings from statsmodels
 warnings.filterwarnings("ignore")
 
 
@@ -11,7 +10,6 @@ def run_sleep_regression(filepath='sleep_data.csv'):
     Runs a multiple regression model to predict sleep_score based on key sleep metrics.
     """
     try:
-        # Load the dataset
         df = pd.read_csv(filepath)
 
         # 1. Define the variables for the model

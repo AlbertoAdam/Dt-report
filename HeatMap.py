@@ -8,7 +8,6 @@ file_path = 'sleep_data.csv'
 try:
     df = pd.read_csv(file_path)
 
-    # --- Identify and Select Relevant Numeric Columns ---
     potential_cols = [
         'sleep_score',
         'total_timeinbed',
@@ -28,19 +27,15 @@ try:
     # Find which of these potential columns are actually in the DataFrame
     cols_to_use = [col for col in potential_cols if col in df.columns]
 
-    # --- *** MODIFICATION: Remove 'total_sleep_time_hours' *** ---
     col_to_remove = 'total_sleep_time_hours'
     if col_to_remove in cols_to_use:
         cols_to_use.remove(col_to_remove)
-        print(f"Removed '{col_to_remove}' from the heatmap as requested.")
     else:
         print(f"Note: '{col_to_remove}' was not in the list of columns to plot anyway.")
 
     if not cols_to_use:
         print("Error: No relevant columns left to create a heatmap.")
     else:
-        # --- Data Cleaning ---
-        # Convert all selected columns to numeric, coercing errors
         for col in cols_to_use:
             df[col] = pd.to_numeric(df[col], errors='coerce')
 
